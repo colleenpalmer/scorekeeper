@@ -18,7 +18,7 @@ export function useTheme() {
 
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) {
-      meta.setAttribute("content", theme === "dark" ? "#0f0f11" : "#fafafa");
+      meta.setAttribute("content", theme === "dark" ? "#514663" : "#cacf85");
     }
   }, [theme]);
 

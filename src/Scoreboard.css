@@ -5,6 +5,11 @@
   padding: calc(1rem + var(--safe-top)) 1rem calc(1.5rem + var(--safe-bottom));
   max-width: 520px;
   margin: 0 auto;
+  background: linear-gradient(
+    180deg,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--bg) 88%, var(--dusty-grape) 12%) 100%
+  );
 }
 
 .header {
@@ -74,7 +79,7 @@
   padding: 1.25rem 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
-  color: #fff;
+  color: var(--on-accent-surface);
   animation: popIn 0.3s ease;
   box-shadow: var(--shadow);
 }
@@ -102,7 +107,7 @@
   margin-top: 0.85rem;
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
+  color: var(--on-accent-surface);
   border-radius: var(--radius-sm);
   padding: 0.65rem 1.4rem;
   cursor: pointer;
@@ -162,6 +167,7 @@
 
 .player-card.is-winner {
   border-color: var(--accent);
+  background: color-mix(in srgb, var(--bg-elevated) 85%, var(--accent) 15%);
 }
 
 .player-top {
@@ -185,8 +191,8 @@
 }
 
 .rank-first {
-  background: var(--gold);
-  color: #000;
+  background: var(--leader-badge);
+  color: var(--on-leader);
 }
 
 .player-info {
@@ -499,12 +505,8 @@
 }
 
 .sheet-action-plus {
-  background: var(--accent);
-  color: #fff;
-}
-
-[data-theme="dark"] .sheet-action-plus {
-  color: #0f0f11;
+  background: var(--accent-gradient);
+  color: var(--on-accent-surface);
 }
 
 .sheet-close {

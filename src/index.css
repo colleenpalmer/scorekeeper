@@ -13,58 +13,83 @@
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --touch-min: 44px;
+
+  /* Palette */
+  --golden-sand: #cacf85;
+  --muted-olive: #8cba80;
+  --air-force-blue: #658e9c;
+  --dusty-grape: #4d5382;
+  --vintage-grape: #514663;
 }
 
 [data-theme="light"] {
-  --bg: #f5f5f7;
-  --bg-elevated: #ffffff;
-  --bg-subtle: rgba(0, 0, 0, 0.04);
-  --bg-hover: rgba(0, 0, 0, 0.06);
-  --border: rgba(0, 0, 0, 0.08);
-  --border-strong: rgba(0, 0, 0, 0.14);
-  --text: #1a1a1a;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
-  --accent: #7c3aed;
-  --accent-soft: rgba(124, 58, 237, 0.1);
-  --accent-text: #6d28d9;
-  --accent-gradient: linear-gradient(135deg, #7c3aed, #a78bfa);
-  --positive: #059669;
-  --positive-bg: rgba(5, 150, 105, 0.1);
-  --positive-border: rgba(5, 150, 105, 0.25);
-  --negative: #dc2626;
-  --negative-bg: rgba(220, 38, 38, 0.08);
-  --negative-border: rgba(220, 38, 38, 0.2);
-  --gold: linear-gradient(135deg, #f59e0b, #fbbf24);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
-  --overlay: rgba(0, 0, 0, 0.4);
-  --input-bg: #f9fafb;
+  /* 60% — Golden Sand */
+  --bg: #cacf85;
+  --overlay: rgba(81, 70, 99, 0.42);
+
+  /* 30% — Air Force Blue & Vintage Grape surfaces */
+  --bg-elevated: #e4e8b8;
+  --bg-subtle: #d8dda8;
+  --bg-hover: #cdd294;
+  --border: rgba(101, 142, 156, 0.45);
+  --border-strong: rgba(77, 83, 130, 0.35);
+  --text: #514663;
+  --text-secondary: #4d5382;
+  --text-muted: #658e9c;
+  --input-bg: #eef0c8;
+  --shadow: 0 1px 3px rgba(81, 70, 99, 0.1), 0 6px 16px rgba(77, 83, 130, 0.08);
+
+  /* 10% — Dusty Grape & Muted Olive accents */
+  --accent: #4d5382;
+  --accent-soft: rgba(77, 83, 130, 0.14);
+  --accent-text: #4d5382;
+  --accent-gradient: linear-gradient(135deg, #4d5382, #658e9c);
+  --on-accent: #eef0c8;
+  --on-accent-surface: #eef0c8;
+  --leader-badge: linear-gradient(135deg, #8cba80, #658e9c);
+  --on-leader: #514663;
+
+  --positive: #5a8f52;
+  --positive-bg: rgba(140, 186, 128, 0.35);
+  --positive-border: rgba(90, 143, 82, 0.45);
+  --negative: #8b5e65;
+  --negative-bg: rgba(139, 94, 101, 0.18);
+  --negative-border: rgba(139, 94, 101, 0.35);
 }
 
 [data-theme="dark"] {
-  --bg: #0f0f11;
-  --bg-elevated: rgba(255, 255, 255, 0.04);
-  --bg-subtle: rgba(255, 255, 255, 0.06);
-  --bg-hover: rgba(255, 255, 255, 0.08);
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --text: #f0f0f0;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --accent: #a78bfa;
-  --accent-soft: rgba(167, 139, 250, 0.12);
-  --accent-text: #c4b5fd;
-  --accent-gradient: linear-gradient(135deg, #7c3aed, #a78bfa);
-  --positive: #34d399;
-  --positive-bg: rgba(52, 211, 153, 0.12);
-  --positive-border: rgba(52, 211, 153, 0.3);
-  --negative: #f87171;
-  --negative-bg: rgba(248, 113, 113, 0.12);
-  --negative-border: rgba(248, 113, 113, 0.3);
-  --gold: linear-gradient(135deg, #f59e0b, #fbbf24);
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --overlay: rgba(0, 0, 0, 0.6);
-  --input-bg: rgba(0, 0, 0, 0.25);
+  /* 60% — Vintage Grape */
+  --bg: #514663;
+  --overlay: rgba(26, 22, 35, 0.72);
+
+  /* 30% — Dusty Grape & Air Force Blue layers */
+  --bg-elevated: #4d5382;
+  --bg-subtle: #5a5f87;
+  --bg-hover: #636894;
+  --border: rgba(101, 142, 156, 0.22);
+  --border-strong: rgba(202, 207, 133, 0.18);
+  --text: #cacf85;
+  --text-secondary: #b8c4a8;
+  --text-muted: #658e9c;
+  --input-bg: #454a72;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.22);
+
+  /* 10% — Muted Olive & Golden Sand highlights */
+  --accent: #8cba80;
+  --accent-soft: rgba(140, 186, 128, 0.16);
+  --accent-text: #cacf85;
+  --accent-gradient: linear-gradient(135deg, #8cba80, #658e9c);
+  --on-accent: #514663;
+  --on-accent-surface: #eef0c8;
+  --leader-badge: linear-gradient(135deg, #cacf85, #8cba80);
+  --on-leader: #514663;
+
+  --positive: #8cba80;
+  --positive-bg: rgba(140, 186, 128, 0.18);
+  --positive-border: rgba(140, 186, 128, 0.38);
+  --negative: #c4898f;
+  --negative-bg: rgba(196, 137, 143, 0.14);
+  --negative-border: rgba(196, 137, 143, 0.32);
 }
 
 html {
