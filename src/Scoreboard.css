@@ -5,20 +5,58 @@
   padding: calc(1rem + var(--safe-top)) 1rem calc(1.5rem + var(--safe-bottom));
   max-width: 520px;
   margin: 0 auto;
-  background: linear-gradient(
-    180deg,
-    var(--bg) 0%,
-    color-mix(in srgb, var(--bg) 92%, var(--bg-subtle) 8%) 100%
-  );
+  background: var(--bg-gradient);
 }
 
 .header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
   margin-bottom: 1.25rem;
 }
 
 .header-text {
   flex: 1;
   min-width: 0;
+}
+
+.theme-switcher {
+  display: flex;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-bottom-width: 3px;
+  background: var(--bg-elevated);
+  padding: 2px;
+  gap: 2px;
+}
+
+.theme-switcher-btn {
+  min-height: 32px;
+  padding: 0.35rem 0.65rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.theme-switcher-btn:hover {
+  color: var(--text-secondary);
+}
+
+.theme-switcher-btn.is-active {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  box-shadow: var(--glow-accent);
+}
+
+[data-theme="scifi"] .theme-switcher-btn.is-active {
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.45);
 }
 
 .eyebrow {
@@ -142,6 +180,23 @@
 .player-card.is-winner {
   border-color: var(--accent);
   background: color-mix(in srgb, var(--bg-elevated) 85%, var(--accent) 15%);
+  box-shadow: var(--shadow), var(--glow-accent);
+}
+
+[data-theme="scifi"] .player-card {
+  border-color: color-mix(in srgb, var(--border) 80%, var(--accent) 20%);
+}
+
+[data-theme="scifi"] .winner-banner {
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
+}
+
+[data-theme="scifi"] .player-score-display:hover:not(:disabled) {
+  text-shadow: var(--glow-accent);
+}
+
+[data-theme="scifi"] .sheet-action-plus {
+  box-shadow: var(--glow-accent);
 }
 
 .player-top {

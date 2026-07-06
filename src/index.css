@@ -14,7 +14,16 @@
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --touch-min: 48px;
   --touch-lg: 56px;
+  --glow-accent: none;
+  --bg-gradient: linear-gradient(
+    180deg,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--bg) 92%, var(--bg-subtle) 8%) 100%
+  );
+}
 
+:root,
+:root[data-theme="default"] {
   /* 60% — black dominant field */
   --bg: #0a0a0a;
   --overlay: rgba(0, 0, 0, 0.75);
@@ -44,6 +53,46 @@
   --negative: #d4d4d4;
   --negative-bg: #262626;
   --negative-border: #404040;
+}
+
+:root[data-theme="scifi"] {
+  --font: "Geist Pixel", ui-monospace, monospace;
+  --bg: #050810;
+  --overlay: rgba(2, 6, 18, 0.82);
+
+  --bg-elevated: #0c1222;
+  --bg-subtle: #131c30;
+  --bg-hover: #1a2740;
+  --border: #1e3a5f;
+  --border-strong: #2563a8;
+  --text: #e0f2fe;
+  --text-secondary: #7dd3fc;
+  --text-muted: #4b7a9e;
+  --input-bg: #081018;
+  --shadow:
+    0 0 1px rgba(34, 211, 238, 0.35),
+    0 4px 24px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(34, 211, 238, 0.06);
+
+  --accent: #22d3ee;
+  --accent-soft: rgba(34, 211, 238, 0.12);
+  --accent-text: #67e8f9;
+  --accent-gradient: linear-gradient(135deg, #22d3ee, #0284c7);
+  --on-accent: #041018;
+  --on-accent-surface: #ecfeff;
+  --leader-badge: linear-gradient(135deg, #22d3ee, #0ea5e9);
+  --on-leader: #041018;
+
+  --negative: #94a3b8;
+  --negative-bg: #131c30;
+  --negative-border: #334155;
+
+  --glow-accent: 0 0 14px rgba(34, 211, 238, 0.35);
+  --bg-gradient: linear-gradient(
+    180deg,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--bg) 88%, #0c4a6e 12%) 100%
+  );
 }
 
 html {

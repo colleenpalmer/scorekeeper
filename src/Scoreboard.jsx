@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { RotateCcw, Undo2 } from "lucide-react";
+import { THEMES, getStoredTheme, setTheme } from "./theme.js";
 import "./Scoreboard.css";
 
 function formatScore(n) {
@@ -104,7 +105,12 @@ export default function Scoreboard() {
   const [scoreSheetPlayer, setScoreSheetPlayer] = useState(null);
   const [confirmRemove, setConfirmRemove] = useState(null);
   const [history, setHistory] = useState([]);
+  const [activeTheme, setActiveTheme] = useState(() => getStoredTheme());
   const nextId = useRef(3);
+
+  const handleThemeChange = (theme) => {
+    setActiveTheme(setTheme(theme));
+  };
 
   const pushHistory = useCallback((snapshot) => {
     setHistory((h) => [...h.slice(-19), snapshot]);
@@ -176,8 +182,30 @@ export default function Scoreboard() {
       <header className="header">
         <div className="header-text">
           <h1 className="title">
-            🎃 <span className="title-accent">Score</span>keeper
+            {activeTheme === "scifi" ? (
+              <>
+                <span className="title-accent">◈</span>{" "}
+                <span className="title-accent">Score</span>keeper
+              </>
+            ) : (
+              <>
+                🎃 <span className="title-accent">Score</span>keeper
+              </>
+            )}
           </h1>
+        </div>
+        <div className="theme-switcher" role="group" aria-label="Theme">
+          {Object.entries(THEMES).map(([id, { label }]) => (
+            <button
+              key={id}
+              type="button"
+              className={`theme-switcher-btn${activeTheme === id ? " is-active" : ""}`}
+              onClick={() => handleThemeChange(id)}
+              aria-pressed={activeTheme === id}
+            >
+              {label}
+            </button>
+          ))}
         </div>
       </header>
 
