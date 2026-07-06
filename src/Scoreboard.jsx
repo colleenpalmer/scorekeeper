@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
+import { RotateCcw, Undo2 } from "lucide-react";
 import "./Scoreboard.css";
 
 function formatScore(n) {
@@ -191,25 +192,8 @@ export default function Scoreboard() {
         </div>
       )}
 
-      {!gameOver && (
-        <div className="toolbar">
-          <button type="button" className="toolbar-btn" onClick={undo} disabled={history.length === 0}>
-            Undo
-          </button>
-          <button
-            type="button"
-            className="toolbar-btn"
-            onClick={() => {
-              if (window.confirm("Reset all scores to zero?")) resetGame();
-            }}
-          >
-            Reset scores
-          </button>
-        </div>
-      )}
-
       <div className="players" role="list">
-        {ranked.map((p, i) => {
+        {ranked.map((p) => {
           const isWinner = gameOver && winner?.id === p.id;
           return (
             <div
@@ -218,10 +202,6 @@ export default function Scoreboard() {
               role="listitem"
             >
               <div className="player-top">
-                <div className={`rank${i === 0 ? " rank-first" : ""}`} aria-hidden="true">
-                  {i + 1}
-                </div>
-
                 <div className="player-info">
                   {editingId === p.id ? (
                     <input
@@ -253,6 +233,7 @@ export default function Scoreboard() {
                   className="player-score-display"
                   onClick={() => !gameOver && setScoreSheetPlayer(p)}
                   aria-label={`${p.name} score: ${formatScore(p.score)}. Tap to enter custom amount.`}
+                  disabled={gameOver}
                 >
                   {formatScore(p.score)}
                 </button>
@@ -268,28 +249,6 @@ export default function Scoreboard() {
                   </button>
                 )}
               </div>
-
-              {!gameOver && (
-                <div className="score-controls">
-                  <button
-                    type="button"
-                    className="score-btn score-btn-minus"
-                    onClick={() => adjustScore(p.id, -1)}
-                    aria-label={`Subtract 1 from ${p.name}`}
-                  >
-                    −
-                  </button>
-
-                  <button
-                    type="button"
-                    className="score-btn score-btn-plus"
-                    onClick={() => adjustScore(p.id, 1)}
-                    aria-label={`Add 1 to ${p.name}`}
-                  >
-                    +
-                  </button>
-                </div>
-              )}
             </div>
           );
         })}
@@ -302,6 +261,30 @@ export default function Scoreboard() {
       </div>
 
       {!gameOver && (
+        <div className="icon-actions">
+          <button
+            type="button"
+            className="icon-action-btn"
+            onClick={undo}
+            disabled={history.length === 0}
+            aria-label="Undo last change"
+          >
+            <Undo2 size={16} strokeWidth={2} />
+          </button>
+          <button
+            type="button"
+            className="icon-action-btn"
+            onClick={() => {
+              if (window.confirm("Reset all scores to zero?")) resetGame();
+            }}
+            aria-label="Reset all scores"
+          >
+            <RotateCcw size={16} strokeWidth={2} />
+          </button>
+        </div>
+      )}
+
+      {!gameOver && (
         <div className="footer-actions">
           <button type="button" className="end-game-btn" onClick={endGame}>
             End game
@@ -310,7 +293,7 @@ export default function Scoreboard() {
       )}
 
       <p className="hint">
-        Tap +/− for quick scoring · Tap a score for custom amounts · Tap a name to rename
+        Tap a score to enter points · Tap a name to rename
       </p>
 
       {scoreSheetPlayer && (

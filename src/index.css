@@ -6,10 +6,10 @@
 }
 
 :root {
-  --font: "Inter", "Helvetica Neue", system-ui, sans-serif;
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
+  --font: "Geist Pixel", ui-monospace, monospace;
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --touch-min: 48px;
