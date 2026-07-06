@@ -12,88 +12,43 @@
   --radius-lg: 20px;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
-  --touch-min: 44px;
+  --touch-min: 48px;
+  --touch-lg: 56px;
 
-  /* Palette */
-  --golden-sand: #cacf85;
-  --muted-olive: #8cba80;
-  --air-force-blue: #658e9c;
-  --dusty-grape: #4d5382;
-  --vintage-grape: #514663;
-}
+  /* 60% — black dominant field */
+  --bg: #0a0a0a;
+  --overlay: rgba(0, 0, 0, 0.75);
 
-[data-theme="light"] {
-  /* 60% — Golden Sand */
-  --bg: #cacf85;
-  --overlay: rgba(81, 70, 99, 0.42);
+  /* 30% — grayscale surfaces & typography */
+  --bg-elevated: #171717;
+  --bg-subtle: #262626;
+  --bg-hover: #2e2e2e;
+  --border: #333333;
+  --border-strong: #404040;
+  --text: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --input-bg: #141414;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.45), 0 8px 28px rgba(0, 0, 0, 0.3);
 
-  /* 30% — Air Force Blue & Vintage Grape surfaces */
-  --bg-elevated: #e4e8b8;
-  --bg-subtle: #d8dda8;
-  --bg-hover: #cdd294;
-  --border: rgba(101, 142, 156, 0.45);
-  --border-strong: rgba(77, 83, 130, 0.35);
-  --text: #514663;
-  --text-secondary: #4d5382;
-  --text-muted: #658e9c;
-  --input-bg: #eef0c8;
-  --shadow: 0 1px 3px rgba(81, 70, 99, 0.1), 0 6px 16px rgba(77, 83, 130, 0.08);
+  /* 10% — orange spot color */
+  --accent: #f97316;
+  --accent-soft: rgba(249, 115, 22, 0.14);
+  --accent-text: #fb923c;
+  --accent-gradient: linear-gradient(135deg, #fb923c, #ea580c);
+  --on-accent: #0a0a0a;
+  --on-accent-surface: #fafafa;
+  --leader-badge: linear-gradient(135deg, #fb923c, #f97316);
+  --on-leader: #0a0a0a;
 
-  /* 10% — Dusty Grape & Muted Olive accents */
-  --accent: #4d5382;
-  --accent-soft: rgba(77, 83, 130, 0.14);
-  --accent-text: #4d5382;
-  --accent-gradient: linear-gradient(135deg, #4d5382, #658e9c);
-  --on-accent: #eef0c8;
-  --on-accent-surface: #eef0c8;
-  --leader-badge: linear-gradient(135deg, #8cba80, #658e9c);
-  --on-leader: #514663;
-
-  --positive: #5a8f52;
-  --positive-bg: rgba(140, 186, 128, 0.35);
-  --positive-border: rgba(90, 143, 82, 0.45);
-  --negative: #8b5e65;
-  --negative-bg: rgba(139, 94, 101, 0.18);
-  --negative-border: rgba(139, 94, 101, 0.35);
-}
-
-[data-theme="dark"] {
-  /* 60% — Vintage Grape */
-  --bg: #514663;
-  --overlay: rgba(26, 22, 35, 0.72);
-
-  /* 30% — Dusty Grape & Air Force Blue layers */
-  --bg-elevated: #4d5382;
-  --bg-subtle: #5a5f87;
-  --bg-hover: #636894;
-  --border: rgba(101, 142, 156, 0.22);
-  --border-strong: rgba(202, 207, 133, 0.18);
-  --text: #cacf85;
-  --text-secondary: #b8c4a8;
-  --text-muted: #658e9c;
-  --input-bg: #454a72;
-  --shadow: 0 2px 10px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.22);
-
-  /* 10% — Muted Olive & Golden Sand highlights */
-  --accent: #8cba80;
-  --accent-soft: rgba(140, 186, 128, 0.16);
-  --accent-text: #cacf85;
-  --accent-gradient: linear-gradient(135deg, #8cba80, #658e9c);
-  --on-accent: #514663;
-  --on-accent-surface: #eef0c8;
-  --leader-badge: linear-gradient(135deg, #cacf85, #8cba80);
-  --on-leader: #514663;
-
-  --positive: #8cba80;
-  --positive-bg: rgba(140, 186, 128, 0.18);
-  --positive-border: rgba(140, 186, 128, 0.38);
-  --negative: #c4898f;
-  --negative-bg: rgba(196, 137, 143, 0.14);
-  --negative-border: rgba(196, 137, 143, 0.32);
+  --negative: #d4d4d4;
+  --negative-bg: #262626;
+  --negative-border: #404040;
 }
 
 html {
   font-size: 16px;
+  color-scheme: dark;
 }
 
 body {

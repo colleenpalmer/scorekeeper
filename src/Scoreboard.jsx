@@ -1,5 +1,4 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { useTheme } from "./hooks/useTheme";
 import "./Scoreboard.css";
 
 function formatScore(n) {
@@ -7,25 +6,7 @@ function formatScore(n) {
 }
 
 const NUMPAD_KEYS = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", "00", "⌫"];
-const QUICK_ADD = [1, 5, 10];
 const PRESETS = [1, 5, 10, 25];
-
-function SunIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-    </svg>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-    </svg>
-  );
-}
 
 function ScoreEntrySheet({ player, onApply, onClose }) {
   const [entry, setEntry] = useState("");
@@ -112,7 +93,6 @@ function ScoreEntrySheet({ player, onApply, onClose }) {
 }
 
 export default function Scoreboard() {
-  const { theme, toggleTheme } = useTheme();
   const [players, setPlayers] = useState([
     { id: 1, name: "Player 1", score: 0 },
     { id: 2, name: "Player 2", score: 0 },
@@ -194,19 +174,10 @@ export default function Scoreboard() {
     <div className="scoreboard">
       <header className="header">
         <div className="header-text">
-          <div className="eyebrow">{gameOver ? "Final scores" : "Game in progress"}</div>
           <h1 className="title">
-            <span className="title-accent">Score</span>keeper
+            🎃 <span className="title-accent">Score</span>keeper
           </h1>
         </div>
-        <button
-          type="button"
-          className="icon-btn"
-          onClick={toggleTheme}
-          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-        >
-          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
-        </button>
       </header>
 
       {gameOver && winner && (
@@ -308,20 +279,6 @@ export default function Scoreboard() {
                   >
                     −
                   </button>
-
-                  <div className="quick-add">
-                    {QUICK_ADD.map((n) => (
-                      <button
-                        key={n}
-                        type="button"
-                        className="quick-btn"
-                        onClick={() => adjustScore(p.id, n)}
-                        aria-label={`Add ${n} to ${p.name}`}
-                      >
-                        +{n}
-                      </button>
-                    ))}
-                  </div>
 
                   <button
                     type="button"

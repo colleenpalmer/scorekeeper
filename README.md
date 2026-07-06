@@ -1,6 +1,6 @@
 # Scorekeeper
 
-A mobile-friendly scoreboard app with light/dark mode.
+A mobile-friendly scoreboard app with a dark grayscale UI and orange accents.
 
 ## Run locally
 
@@ -15,7 +15,7 @@ Open the URL shown in the terminal (usually http://localhost:5173).
 
 - Per-player +/− buttons and quick-add (+1, +5, +10)
 - Tap any score to enter a custom amount
-- Light and dark themes (remembers your preference)
+- Dark grayscale UI with orange spot accents
 - Undo last score change
 - Rename players with a single tap
 - End game with winner display
